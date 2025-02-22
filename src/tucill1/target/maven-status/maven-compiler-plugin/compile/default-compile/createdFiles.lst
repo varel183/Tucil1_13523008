@@ -1,0 +1,8 @@
+utils\OutputHandler.class
+logic\Board.class
+module-info.class
+logic\Block.class
+gui\App.class
+utils\InputHandler.class
+logic\Solver.class
+gui\Controller.class
