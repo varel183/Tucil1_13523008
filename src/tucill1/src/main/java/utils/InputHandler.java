@@ -47,7 +47,6 @@ public class InputHandler {
             scanner.nextLine();
             
             caseType = scanner.nextLine();
-            System.out.println(caseType);
 
             if (!caseType.equals("DEFAULT")) {
                 scanner.close();
@@ -62,7 +61,6 @@ public class InputHandler {
 
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
-                System.out.println(line);
 
                 if (line.isEmpty()) {
                     if (!currentBlock.isEmpty()) {
