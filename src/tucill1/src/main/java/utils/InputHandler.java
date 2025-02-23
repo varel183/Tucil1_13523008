@@ -56,9 +56,9 @@ public class InputHandler {
             caseType = scanner.nextLine();
 
             // cek caseType
-            if (!caseType.equals("DEFAULT") || !caseType.equals("CUSTOM")) {
+            if (!caseType.equals("DEFAULT")) {
                 scanner.close();
-                throw new IllegalArgumentException("Error: Case type tidak ditemukan dalam file.");
+                throw new IllegalArgumentException("Error: Case type yang valid hanya 'DEFAULT'");
             }
 
             int blockCount = 0;
