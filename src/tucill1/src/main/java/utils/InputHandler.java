@@ -71,13 +71,13 @@ public class InputHandler {
 
                 for (char c : line.toCharArray()) {
                     if (!isValidChar(c)) {
-                        throw new IllegalArgumentException("Error: Karakter yang ditemukan (" + c + ") bukan huruf atau spasi.");
+                        throw new IllegalArgumentException("Error: Karakter yang ditemukan (" + c + ") bukan huruf kapital atau spasi.");
                     }
                 }
 
                 char firstLetter = '.';
                 for (char c : line.toCharArray()) {
-                    if (Character.isLetter(c)) {
+                    if (Character.isUpperCase(c)) {
                         firstLetter = c;
                         break;
                     }
@@ -124,7 +124,7 @@ public class InputHandler {
     }
 
     private boolean isValidChar(char c) {
-        return Character.isLetter(c) || c == ' ';
+        return (Character.isUpperCase(c)) || c == ' ';
     }
 
     private List<Character> processLine(String line) {
@@ -132,7 +132,7 @@ public class InputHandler {
         boolean foundFirstLetter = false;
         
         for (char c : line.toCharArray()) {
-            if (Character.isLetter(c)) {
+            if (Character.isUpperCase(c)) {
                 foundFirstLetter = true;
                 processedRow.add(c);
             } else if (!foundFirstLetter && c == ' ') {
