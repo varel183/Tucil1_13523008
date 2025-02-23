@@ -127,7 +127,7 @@ public class Controller implements Initializable {
     
     @FXML
     private void handleSaveSolution() {
-        if (board == null) {
+        if (board == null || !solver.isSolved()) {
             showAlert("Error", "No solution to save", "Please solve the puzzle first.");
             return;
         }
@@ -148,7 +148,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void handleSaveImageSolution() {
-        if (board == null) {
+        if (board == null || !solver.isSolved()) {
             showAlert("Error", "No solution to save", "Please solve the puzzle first.");
             return;
         }

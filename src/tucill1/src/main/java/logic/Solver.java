@@ -77,4 +77,8 @@ public class Solver {
   public long getIterationCount() {
     return iterationCount;
   }
+
+  public boolean isSolved() {
+    return isBoardFullyFilled() && allBlocksPlaced();
+  }
 }

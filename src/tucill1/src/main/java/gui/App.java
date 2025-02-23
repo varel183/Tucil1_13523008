@@ -258,7 +258,7 @@ public class App extends Application {
     }
     
     private void saveSolution(String fileName) {
-        if (board == null) {
+        if (board == null || !solver.isSolved()) {
             showAlert("Error", "No solution to save", "Please solve the puzzle first.");
             return;
         }
@@ -277,7 +277,7 @@ public class App extends Application {
     }
 
     private void saveImageSolution(String fileName) {
-        if (board == null) {
+        if (board == null || !solver.isSolved()) {
             showAlert("Error", "No solution to save", "Please solve the puzzle first.");
             return;
         }
