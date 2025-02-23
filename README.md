@@ -51,26 +51,24 @@ java --module-path <path-to-javafx-sdk/lib> --add-modules javafx.controls,javafx
 
 ![Run Code](image.png)
 
-## Cara Menjalankan Program 3
-1. **Buka terminal atau command prompt.**
-2. **Navigasi ke direktori project.**
-3. Jalankan perintah berikut untuk mengkompilasi program:
-   ```bash
-   java --module-path <path-to-javafx-sdk/lib> --add-modules javafx.controls,javafx.fxml -cp bin gui.App
-   ```
-   **Ganti `<path-to-javafx-sdk>` dengan path ke JavaFX SDK** di sistem Anda.
-
 ## Struktur File
 ```
-src/
- ├── main/java/
- │   ├── gui/      # Kode untuk antarmuka pengguna (GUI)
- │   ├── logic/    # Kode untuk logika permainan (papan, blok, solver)
- │   ├── utils/    # Kode utilitas (input/output, manajemen warna)
- │
-test/
- ├── input/        # File teks berisi konfigurasi puzzle
- ├── output/       # File teks/gambar hasil solusi
+Tucil1_13523008
+├── bin/
+│     ├── gui/     
+│     ├── logic/    
+│     ├── utils/  
+├── doc/
+├── src/
+│     ├── tucill1/src/main/
+│     │     ├── java/
+│     │     │     ├── gui/      # Kode untuk antarmuka pengguna (GUI)
+│     │     │     ├── logic/    # Kode untuk logika permainan (papan, blok, solver)
+│     │     │     ├── utils/    # Kode utilitas (input/output, manajemen warna)
+│     │     ├── resources/gui
+├── test/
+│     ├── input/        # File teks berisi konfigurasi puzzle
+│     ├── output/       # File teks/gambar hasil solusi
 ```
 
 ## Contoh File Input
