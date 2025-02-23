@@ -1,7 +1,7 @@
-2 3
+3 3 3
 DEFAULT
 A
 AA
 B
-B
-C
+BB
+aaa
