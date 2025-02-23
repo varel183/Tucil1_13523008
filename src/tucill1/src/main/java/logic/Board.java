@@ -13,6 +13,7 @@ public class Board {
     initializeGrid();
   }
 
+  // buat papan kosong rowsxcols
   private void initializeGrid() {
     grid = new ArrayList<>();
     for (int i = 0; i < rows; i++) {
@@ -24,6 +25,7 @@ public class Board {
     }
   }
 
+  // cek blok bisa ditaruh ke papan
   public boolean canPlaceBlock(Block block, int row, int col) {
     List<List<Character>> shape = block.getShape();
     for (int i = 0; i < shape.size(); i++) {
@@ -36,6 +38,7 @@ public class Board {
     return true;
   }
 
+  // taruh blok ke papan
   public void placeBlock(Block block, int row, int col, char symbol) {
     List<List<Character>> shape = block.getShape();
     for (int i = 0; i < shape.size(); i++) {
@@ -47,6 +50,7 @@ public class Board {
     }
   }
 
+  // hapus block dri papan
   public void removeBlock(Block block, int row, int col) {
     List<List<Character>> shape = block.getShape();
     for (int i = 0; i < shape.size(); i++) {

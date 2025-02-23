@@ -20,7 +20,7 @@ public class InputHandler {
 
     private void readFile(String filePath) throws FileNotFoundException {
         try (Scanner scanner = new Scanner(new File(filePath))) {
-
+            // cek N, M, P, dan case type
             if (!scanner.hasNextInt()) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Nilai N tidak ditemukan dalam file atau bukan bilangan bulat.");
@@ -33,6 +33,7 @@ public class InputHandler {
             }
             M = scanner.nextInt();
 
+            // cek N M positif
             if (N < 1 || M < 1) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Nilai N atau M tidak valid (positif).");
@@ -44,6 +45,7 @@ public class InputHandler {
             }
             P = scanner.nextInt();
 
+            // cek P harus lebih kecil dari 27
             if (P > 26) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Jumlah blok (" + P + ") melebihi batas maksimum (26).");
@@ -53,7 +55,8 @@ public class InputHandler {
             
             caseType = scanner.nextLine();
 
-            if (!caseType.equals("DEFAULT")) {
+            // cek caseType
+            if (!caseType.equals("DEFAULT") || !caseType.equals("CUSTOM")) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Case type tidak ditemukan dalam file.");
             }
@@ -63,7 +66,7 @@ public class InputHandler {
             List<List<List<Character>>> blockShape = new ArrayList<>();
             char currentSymbol = '\0';
 
-
+            // proses pembacaan blok
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
 
@@ -120,6 +123,7 @@ public class InputHandler {
                 throw new IllegalArgumentException("Error: Jumlah blok yang terbaca (" + blockCount + ") kurang dari jumlah yang diharapkan (" + P + ").");
             } 
 
+            // buat jadi square
             for (List<List<Character>> block : blockShape) {
                 List<List<Character>> squareBlock = makeSquare(block);
                 Block newBlock = new Block(squareBlock);

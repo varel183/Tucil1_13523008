@@ -8,6 +8,7 @@ public class Block {
   private List<List<Character>> currentShape;
   private Character symbol;
   private boolean isPlaced;
+  private List<List<List<Character>>> orientations;
 
   public Block(List<List<Character>> shape) {
     this.originalShape = new ArrayList<>();
@@ -17,6 +18,8 @@ public class Block {
     this.currentShape = new ArrayList<>(originalShape);
     this.symbol = findSymbol(originalShape);
     this.isPlaced = false;
+    this.orientations = new ArrayList<>();
+    generateOrientations();
   }
 
   public boolean isPlaced() {
@@ -38,19 +41,34 @@ public class Block {
     return '.';
   }
 
-  public void applyTransformation(int rotation, boolean flip) {
-    List<List<Character>> transformed = new ArrayList<>(originalShape);
-    
-    for (int i = 0; i < rotation; i++) {
-        transformed = rotate90(transformed);
+  // buat orientation tiap block, skip kalau ga unik
+  private void generateOrientations() {
+    List<List<Character>> temp = new ArrayList<>(originalShape);
+    // rotasi 0, 90, 180, 270 derqjat
+    for (int rotation = 0; rotation < 4; rotation++) {
+        if (isUnique(temp)) {
+            orientations.add(new ArrayList<>(temp));
+        }
+        temp = rotate90(temp);
     }
     
-    if (flip) {
-        transformed = flip(transformed);
+    temp = flip(originalShape);
+    for (int rotation = 0; rotation < 4; rotation++) {
+        if (isUnique(temp)) {
+            orientations.add(new ArrayList<>(temp));
+        }
+        temp = rotate90(temp);
     }
-    
-    this.currentShape = transformed;
-}
+  }
+
+  private boolean isUnique(List<List<Character>> shape) {
+    for (List<List<Character>> orientation : orientations) {
+        if (orientation.equals(shape)) {
+            return false;
+        }
+    }
+    return true;
+  }
   
   private List<List<Character>> flip(List<List<Character>> shape) {
     List<List<Character>> flippedShape = new ArrayList<>();
@@ -79,6 +97,14 @@ public class Block {
       rotated.add(newRow);
     }
     return rotated;
+  }
+
+  public List<List<List<Character>>> getOrientations() {
+    return orientations;
+  }
+
+  public void setShape(List<List<Character>> shape) {
+    currentShape = new ArrayList<>(shape);
   }
 
   public List<List<Character>> getShape() {
