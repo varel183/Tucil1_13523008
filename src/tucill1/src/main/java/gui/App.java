@@ -36,15 +36,6 @@ public class App extends Application {
     private Label statusLabel;
     private Label iterationsLabel;
     private Label timeLabel;
-    
-    // private final Map<Character, Color> colorMap = new HashMap<>();
-    // private final Color[] blockColors = {
-    //     Color.RED, Color.BLUE, Color.GREEN, Color.PURPLE, Color.ORANGE, 
-    //     Color.CYAN, Color.MAGENTA, Color.BROWN, Color.DARKBLUE, Color.DARKGREEN,
-    //     Color.DARKORANGE, Color.DARKRED, Color.LIGHTBLUE, Color.LIGHTGREEN, Color.LIGHTPINK,
-    //     Color.LIGHTYELLOW, Color.DARKGRAY, Color.GOLD, Color.SILVER, Color.TEAL,
-    //     Color.VIOLET, Color.TOMATO, Color.SALMON, Color.OLIVE, Color.INDIANRED, Color.CORNFLOWERBLUE
-    // };
 
     @Override
     public void start(Stage primaryStage) {
@@ -116,22 +107,12 @@ public class App extends Application {
     }
     
     private void loadPuzzleFile(String fileName, Stage primaryStage) {
-        // FileChooser fileChooser = new FileChooser();
-        // fileChooser.setTitle("Open Puzzle File");
-        // fileChooser.getExtensionFilters().add(
-        //     new FileChooser.ExtensionFilter("Text Files", "*.txt")
-        // );
-        
-        
-        // File selectedFile = fileChooser.showOpenDialog(primaryStage);
         if (fileName != null) {
             try {
                 InputHandler inputHandler = new InputHandler(fileName + ".txt");
                 board = new Board(inputHandler.getN(), inputHandler.getM());
                 blocks = inputHandler.getBlocks();
                 solver = new Solver(board, blocks);
-                
-                // setupBlockColors();
                 
                 updateBoardDisplay();
                 updateBlocksPreview();
@@ -144,17 +125,7 @@ public class App extends Application {
             }
         }
     }
-    
-    // private void setupBlockColors() {
-    //     colorMap.clear();
-    //     int colorIndex = 0;
-        
-    //     for (Block block : blocks) {
-    //         char symbol = block.getSymbol();
-    //         colorMap.put(symbol, blockColors[colorIndex % blockColors.length]);
-    //         colorIndex++;
-    //     }
-    // }
+
     
     private void updateBoardDisplay() {
         boardGrid.getChildren().clear();

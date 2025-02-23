@@ -101,14 +101,6 @@ public class InputHandler {
                         currentBlock.add(processedRow);
                     }
                 }
-
-                // System.out.println("Block " + blockCount + ": ");
-                // for (List<Character> row : currentBlock) {
-                //     for (Character c : row) {
-                //         System.out.print(c);
-                //     }
-                //     System.out.println();
-                // }
             }
 
             if (!currentBlock.isEmpty()) {
@@ -126,11 +118,6 @@ public class InputHandler {
                 Block newBlock = new Block(squareBlock);
                 blocks.add(newBlock);
             }
-
-            // System.out.println("N: " + N);
-            // System.out.println("M: " + M);
-            // System.out.println("P: " + P);
-            // System.out.println("Case Type: " + caseType);
             
             scanner.close();
         }
