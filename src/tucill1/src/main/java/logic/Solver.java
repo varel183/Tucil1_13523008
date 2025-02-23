@@ -12,10 +12,11 @@ public class Solver {
     this.blocks = blocks;
   }
 
+  // algo brute force (rekursi + backtrack)
   public boolean solve(int blockIndex) {
     if (blockIndex == blocks.size()) {
       return isBoardFullyFilled() && allBlocksPlaced();
-    }
+    } 
 
     Block block = blocks.get(blockIndex);
     
@@ -68,15 +69,7 @@ public class Solver {
     return true;
   }
 
-  public Board getBoard() {
-    return board;
-  }
-
-  public long getIterationCount() {
-    return iterationCount;
-  }
-
-  public boolean isSolved() {
-    return isBoardFullyFilled() && allBlocksPlaced();
-  }
+  public Board getBoard() {return board;}
+  public long getIterationCount() {return iterationCount;}
+  public boolean isSolved() {return isBoardFullyFilled() && allBlocksPlaced();}
 }

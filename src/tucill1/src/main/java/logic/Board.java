@@ -62,15 +62,9 @@ public class Board {
     }
   }
 
-  public int getRows() {
-    return rows;
-  }
+  public int getRows() {return rows;}
 
-  public int getCols() {
-    return cols;
-  }
+  public int getCols() {return cols;}
 
-  public List<List<Character>> getGrid() {
-    return grid;
-  }
+  public List<List<Character>> getGrid() {return grid;}
 }

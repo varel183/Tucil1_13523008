@@ -186,23 +186,9 @@ public class InputHandler {
         return squareBlock;
     }
 
-    public int getN() {
-        return N;
-    }
-
-    public int getM() {
-        return M;
-    }
-
-    public int getP() {
-        return P;
-    }
-
-    public String getCaseType() {
-        return caseType;
-    }
-
-    public List<Block> getBlocks() {
-        return blocks;
-    }
+    public int getN() {return N;}
+    public int getM() {return M;}
+    public int getP() {return P;}
+    public String getCaseType() {return caseType;}
+    public List<Block> getBlocks() {return blocks;}
 }

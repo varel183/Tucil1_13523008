@@ -22,14 +22,6 @@ public class Block {
     generateOrientations();
   }
 
-  public boolean isPlaced() {
-    return isPlaced;
-  }
-
-  public void setPlaced(boolean placed) {
-    this.isPlaced = placed;
-  }
-
   private Character findSymbol(List<List<Character>> shape) {
     for (List<Character> row : shape) {
       for (Character c : row) {
@@ -99,28 +91,13 @@ public class Block {
     return rotated;
   }
 
-  public List<List<List<Character>>> getOrientations() {
-    return orientations;
-  }
-
-  public void setShape(List<List<Character>> shape) {
-    currentShape = new ArrayList<>(shape);
-  }
-
-  public List<List<Character>> getShape() {
-    return currentShape;
-  }
-
-  public int getRow() {
-    return currentShape.size();
-  }
-
-  public int getCol() {
-    return currentShape.get(0).size();
-  }
-
-  public char getSymbol() {
-    return symbol;
-  }
+  public boolean isPlaced() {return isPlaced;}
+  public void setPlaced(boolean placed) {this.isPlaced = placed;}
+  public List<List<List<Character>>> getOrientations() {return orientations;}
+  public void setShape(List<List<Character>> shape) {currentShape = new ArrayList<>(shape);}
+  public List<List<Character>> getShape() {return currentShape;}
+  public int getRow() {return currentShape.size();}
+  public int getCol() {return currentShape.get(0).size();}
+  public char getSymbol() {return symbol;}
 
 }
