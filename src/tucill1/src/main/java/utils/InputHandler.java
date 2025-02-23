@@ -46,7 +46,7 @@ public class InputHandler {
 
             scanner.nextLine();
 
-            if (!scanner.hasNextLine()) {
+            if (!scanner.hasNextLine() || !scanner.nextLine().equals("DEFAULT")) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Case type tidak ditemukan dalam file.");
             }
