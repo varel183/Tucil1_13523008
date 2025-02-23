@@ -33,6 +33,11 @@ public class InputHandler {
             }
             M = scanner.nextInt();
 
+            if (N < 1 || M < 1) {
+                scanner.close();
+                throw new IllegalArgumentException("Error: Nilai N atau M tidak valid (positif).");
+            }
+
             if (!scanner.hasNextInt()) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Nilai P tidak ditemukan dalam file atau bukan bilangan bulat.");
