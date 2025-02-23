@@ -43,22 +43,26 @@ public class InputHandler {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Jumlah blok (" + P + ") melebihi batas maksimum (26).");
             }
-
+            
             scanner.nextLine();
+            
+            caseType = scanner.nextLine();
+            System.out.println(caseType);
 
-            if (!scanner.hasNextLine() || !scanner.nextLine().equals("DEFAULT")) {
+            if (!caseType.equals("DEFAULT")) {
                 scanner.close();
                 throw new IllegalArgumentException("Error: Case type tidak ditemukan dalam file.");
             }
-            caseType = scanner.nextLine();
 
             int blockCount = 0;
             List<List<Character>> currentBlock = new ArrayList<>();
             List<List<List<Character>>> blockShape = new ArrayList<>();
             char currentSymbol = '\0';
 
+
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
+                System.out.println(line);
 
                 if (line.isEmpty()) {
                     if (!currentBlock.isEmpty()) {
