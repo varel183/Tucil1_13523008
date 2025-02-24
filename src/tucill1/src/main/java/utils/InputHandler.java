@@ -65,6 +65,7 @@ public class InputHandler {
             List<List<Character>> currentBlock = new ArrayList<>();
             List<List<List<Character>>> blockShape = new ArrayList<>();
             char currentSymbol = '\0';
+            List<Character> usedChar = new ArrayList<>();
 
             // proses pembacaan blok
             while (scanner.hasNext()) {
@@ -127,6 +128,12 @@ public class InputHandler {
             for (List<List<Character>> block : blockShape) {
                 List<List<Character>> squareBlock = makeSquare(block);
                 Block newBlock = new Block(squareBlock);
+
+                char symbol = newBlock.getSymbol();
+                if (usedChar.contains(symbol)) {
+                    throw new IllegalArgumentException("Error: Simbol blok (" + symbol + ") sudah digunakan.");
+                }
+                usedChar.add(symbol);
                 blocks.add(newBlock);
             }
             
@@ -155,6 +162,8 @@ public class InputHandler {
         
         return processedRow;
     }
+
+    
 
     private static List<List<Character>> makeSquare(List<List<Character>> block) {
         int rows = block.size();
